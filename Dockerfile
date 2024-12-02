@@ -1,4 +1,4 @@
-FROM node:18.20.5-alpine
+FROM node:18
 WORKDIR /app
 COPY . .
 RUN npm install
