@@ -9,11 +9,11 @@ const errorMiddleware = (error, request, response, next) => {
   }
 
   if (error instanceof InputError) {
-    sendErrorResponse(response, error.status, error.message);
+    sendErrorResponse(response, error.statusCode, error.message);
   } else if (error instanceof MulterError) {
     sendErrorResponse(response, 413, "Payload content length greater than maximum allowed: 1000000");
   } else {
-    sendErrorResponse(response, 500, "Internal Server Error");
+    sendErrorResponse(response, 500, error.message);
   }
 };
 

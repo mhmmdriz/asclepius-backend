@@ -9,5 +9,6 @@ const upload = multer({
 });
 
 router.post('/predict', upload.single('image'), handler.predict);
+router.get('/predict/histories', handler.getHistories);
 
 module.exports = router;

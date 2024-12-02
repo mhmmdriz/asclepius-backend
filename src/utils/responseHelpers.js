@@ -1,9 +1,15 @@
-const sendSuccessResponse = (response, data = null, statusCode = 200, message) => {
+const sendSuccessResponse = (response, data = null, statusCode = 200, message = null) => {
   const responseBody = {
     status: "success",
-    message: message,
-    data: data,
   };
+
+  if (message) {
+    responseBody.message = message;
+  }
+
+  if (data) {
+    responseBody.data = data;
+  }
 
   response.status(statusCode).json(responseBody);
 };
